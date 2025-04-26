@@ -8,20 +8,14 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-<div class="container my-4">
-    <h1 class="mb-4">Bienvenido al Menú de Navegación</h1>
-
-    <!-- Navbar sin JavaScript -->
-    <nav>
-      
-        <div class="mb-3">
-            <a href="/hospital" class="btn btn-info w-100 mb-3">Hospitales</a>
-        </div>
-        <div class="mb-3">
-            <a href="/doctor" class="btn btn-secondary w-100 mb-3">Doctores</a>
-        </div>
-        <div class="mb-3">
-            <a href="/paciente" class="btn btn-success w-100 mb-3">Pacientes</a>
+<!-- navbar.html -->
+<div th:fragment="navbar">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Hospital PUCP</a>
+        <div class="navbar-nav">
+            <a class="nav-link active" href="/hospitales/lista">Hospitales</a>
+            <a class="nav-link" href="/doctor">Doctores</a>
+            <a class="nav-link" href="/paciente">Pacientes</a>
         </div>
     </nav>
 </div>

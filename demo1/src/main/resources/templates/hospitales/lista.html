@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Hospitales</title>
+</head>
+<body>
+
+<!-- Incluir el navbar global -->
+<div th:replace="~{navbar.html :: navbar}"></div>
+
+<h2>Lista de Hospitales</h2>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>Nombre del Hospital</th>
+        <th>Dirección</th>
+        <th>Acciones</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="hospital : ${hospitales}">
+        <td th:text="${hospital.nombre}"></td>
+        <td th:text="${hospital.direccion}"></td>
+        <td>
+            <a th:href="@{/hospitales/{hospitalId}/doctores(hospitalId=${hospital.id})}">Mostrar Doctores</a> |
+            <a th:href="@{/hospitales/{hospitalId}/pacientes(hospitalId=${hospital.id})}">Mostrar Pacientes</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pacientes del Hospital</title>
+</head>
+<body>
+
+<h2>Pacientes del Hospital</h2>
+
+<table border="1">
+  <thead>
+  <tr>
+    <th>Nombre</th>
+    <th>Edad</th>
+    <th>Diagnóstico</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="paciente : ${pacientes}">
+    <td th:text="${paciente.nombre}"></td>
+    <td th:text="${paciente.edad}"></td>
+    <td th:text="${paciente.diagnostico}"></td>
+  </tr>
+  </tbody>
+</table>
+
+</body>
+</html>
