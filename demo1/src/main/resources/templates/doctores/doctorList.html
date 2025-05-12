@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Lista de Doctores</title>
+</head>
+<body>
+<h1>Lista de Doctores</h1>
+<table>
+  <thead>
+  <tr>
+    <th>Nombre</th>
+    <th>Especialidad</th>
+    <th>Hospital</th>
+    <th>Acciones</th>
+  </tr>
+  </thead>
+  <tbody>
+  <!-- Iterar sobre la lista de doctores -->
+  <tr th:each="doctor : ${doctores}">
+    <td th:text="${doctor.nombre}"></td>
+    <td th:text="${doctor.especialidad}"></td>
+    <td th:text="${doctor.hospital.nombre}"></td>
+    <td>
+      <!-- Enlace para ver las próximas citas de cada doctor -->
+      <a th:href="@{/doctores/citas/{doctorId}(doctorI  d=${doctor.id})}">Próximas citas</a>
+    </td>
+  </tr> <!-- Aquí se cierra correctamente la etiqueta tr -->
+  </tbody>
+</table>
+</body>
+</html>
