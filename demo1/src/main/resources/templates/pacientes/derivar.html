@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Derivar Paciente</title>
+</head>
+<body>
+<h1>Formulario de Derivación</h1>
+<h3>Paciente: <span th:text="${paciente.nombre}"></span></h3>
+
+<form th:action="@{/pacientes/derivar/{pacienteId}(pacienteId=${paciente.id})}" method="post">
+  <label for="doctor">Seleccionar Doctor:</label>
+  <select name="doctorId" id="doctor">
+    <option th:each="doctor : ${doctores}" th:value="${doctor.id}" th:text="${doctor.nombre}"></option>
+  </select>
+
+  <button type="submit">Derivar</button>
+</form>
+
+<a href="/pacientes">Volver a la lista de pacientes</a>
+</body>
+</html>

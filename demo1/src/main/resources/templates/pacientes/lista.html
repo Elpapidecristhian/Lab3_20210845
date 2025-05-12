@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Lista de Pacientes</title>
+</head>
+<body>
+
+<h2>Lista de Pacientes</h2>
+
+<table border="1">
+  <thead>
+  <tr>
+    <th>Nombre</th>
+    <th>Edad</th>
+    <th>Doctor</th>
+    <th>Hospital</th>
+    <th>Acciones</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="paciente : ${pacientes}">
+    <td th:text="${paciente.nombre}"></td>
+    <td th:text="${paciente.edad}"></td>
+    <td th:text="${paciente.doctor.nombre}"></td>
+    <td th:text="${paciente.hospital.nombre}"></td>
+    <td>
+      <a th:href="@{/pacientes/derivar/{pacienteId}(pacienteId=${paciente.id})}">Derivar Paciente</a>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+</body>
+</html>
